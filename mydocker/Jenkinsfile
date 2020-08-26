@@ -1,7 +1,18 @@
 node {
-    def app
 
-    stage('Clone repository') {
+ def app
+
+    stages {
+        stage('ReadHost') {
+            steps {
+                echo "Hello World!"
+                sh "echo Hello from the shell"
+                sh "hostname"
+                sh "uptime"
+            }
+        }
+        
+         stage('Clone repository') {
         /* Let's make sure we have the repository cloned to our workspace */
 
         checkout scm
@@ -33,4 +44,7 @@ node {
             app.push("latest")
         }
     }
+    }
+
+
 }
