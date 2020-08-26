@@ -1,6 +1,6 @@
 node {
         stage('ReadHost') {
-            steps {
+            step {
                 echo "Hello World!"
                 sh "echo Hello from the shell"
                 sh "hostname"
