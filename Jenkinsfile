@@ -1,6 +1,4 @@
 node {
-
-    stages {
         stage('ReadHost') {
             steps {
                 echo "Hello World!"
@@ -9,5 +7,5 @@ node {
                 sh "uptime"
             }
         }
-     }
+     
 }
