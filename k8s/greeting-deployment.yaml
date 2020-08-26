@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: greeting-deployment
+  labels:
+    app: greeting
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: greeting
+  template:
+    metadata:
+      labels:
+        app: greeting
+    spec:
+      containers:
+      - name: greeting-container
+        image: greetings:0.0.1-SNAPSHOT
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 9090
+          name: "http"
+        - containerPort: 5005
+          name: "debug"
