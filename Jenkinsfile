@@ -1,11 +1,12 @@
-node {
-        stage('ReadHost') {
-            step {
-                echo "Hello World!"
-                sh "echo Hello from the shell"
-                sh "hostname"
-                sh "uptime"
+pipeline {
+    agent {
+        docker { image 'node:14-alpine' }
+    }
+    stages {
+        stage('Test') {
+            steps {
+                sh 'node --version'
             }
         }
-     
+    }
 }
